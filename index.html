@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SMOKD — Quit Smoking For Real</title>
+  <meta name="description" content="SMOKD helps you quit smoking for good with Rescue Mode, progress tracking, and an AI coach. Simple. Powerful. Real."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/1b7fb53e60.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#0A0B27'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 0 2px rgba(255,255,255,0.06), 0 10px 30px rgba(0,0,0,0.4)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root{--bg:#0A0B27}
+    html,body{background:var(--bg)}
+    body{font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"}
+    /* soft starry gradient background */
+    .backdrop {
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(123,97,255,.18), rgba(0,0,0,0) 60%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(0,255,171,.16), rgba(0,0,0,0) 60%),
+                  radial-gradient(1000px 700px at 50% 120%, rgba(255,115,172,.12), rgba(0,0,0,0) 60%);
+    }
+    .glass { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); }
+    .badge { background: linear-gradient(135deg, #7059FF, #FF7AB6); }
+    .blob {
+      width: 240px; height: 240px; border-radius: 9999px;
+      background: conic-gradient(from 120deg, #6E5BFF, #36E4DA, #FF8EB3, #6E5BFF);
+      filter: blur(0.2px);
+      box-shadow: 0 0 60px rgba(110,91,255,.35), 0 0 120px rgba(54,228,218,.25);
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform: translateY(0)} 50%{transform: translateY(-10px)} }
+  </style>
+</head>
+<body class="text-gray-100 selection:bg-white/10">
+  <!-- NAV -->
+  <header class="backdrop/40 sticky top-0 z-40">
+    <div class="mx-auto max-w-7xl px-5">
+      <div class="flex items-center justify-between py-4">
+        <a href="#" class="flex">
+          <span class="font-extrabold tracking-tight text-lg">SMOKD</span>
+        </a>
+        <div class="hidden sm:flex items-center gap-4 text-sm">
+          <a href="#features" class="hover:opacity-80">Features</a>
+          <a href="#faq" class="hover:opacity-80">FAQ</a>
+          <a href="#cta" class="ml-2 rounded-xl px-4 py-2 badge text-sm font-semibold shadow-glow hover:opacity-95">Get the App</a>
+        </div>
+      </div>
+    </div>
+    <div class="h-px w-full bg-gradient-to-r from-white/0 via-white/10 to-white/0"></div>
+  </header>
+
+  <!-- HERO -->
+  <!-- <section class="backdrop">
+    <div class="mx-auto max-w-7xl px-5 pt-16 md:pt-24 pb-12">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-white/80 mb-4">
+            <span class="i h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            Quit for good — not just this week
+          </div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+            Quit Smoking.
+            <span class="block text-white/80">For Real This Time.</span>
+          </h1>
+          <p class="mt-4 text-white/70 max-w-xl">
+            SMOKD gives you instant <span class="font-semibold text-white">Rescue Mode</span> for cravings, clean progress tracking that shows your wins, and a friendly AI coach when you need a nudge. Simple. Powerful. Yours.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3" id="cta">
+            <a href="#" class="badge rounded-2xl px-5 py-3 font-semibold shadow-glow">Get SMOKD</a>
+            <a href="#features" class="rounded-2xl px-5 py-3 font-semibold glass hover:bg-white/5">See Features</a>
+            <span class="text-xs text-white/50">Free to try · No sign-up drama</span>
+          </div>
+
+          <div class="mt-8 flex items-center gap-2 text-sm text-white/60">
+            <div class="flex -space-x-3">
+              <div class="h-8 w-8 rounded-full bg-white/20 border border-white/20"></div>
+              <div class="h-8 w-8 rounded-full bg-white/20 border border-white/20"></div>
+              <div class="h-8 w-8 rounded-full bg-white/20 border border-white/20"></div>
+            </div>
+            <span>Thousands building smoke‑free streaks</span>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-center">
+          <div class="blob"></div>
+          <div class="absolute inset-auto glass rounded-3xl p-5 md:p-6 w-[320px] md:w-[360px] shadow-glow">
+            <div class="text-xs text-white/60">Smoke‑free for</div>
+            <div class="mt-1 text-3xl md:text-4xl font-extrabold tracking-tight">21:45:22</div>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+              <div class="glass rounded-xl p-3">
+                <div class="text-white/60 text-xs">Savings</div>
+                <div class="font-bold">$932.21</div>
+              </div>
+              <div class="glass rounded-xl p-3">
+                <div class="text-white/60 text-xs">Cigs Skipped</div>
+                <div class="font-bold">23</div>
+              </div>
+              <div class="glass rounded-xl p-3 col-span-2 flex items-center justify-between">
+                <div>
+                  <div class="text-white/60 text-xs">Health Recovery</div>
+                  <div class="font-bold">86% early stages</div>
+                </div>
+                <button class="rounded-xl px-3 py-2 badge text-xs font-semibold">Rescue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section> -->
+<section class="px-6 py-20">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <div>
+          <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-white/80 mb-4">
+            <span class="i h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            Quit for good — not just this week
+          </div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+            Quit Smoking.
+            <span class="block text-white/80">For Real This Time.</span>
+          </h1>
+          <p class="mt-4 text-white/70 max-w-xl">
+            SMOKD is your all-in-one quit partner — built to keep you motivated, track your progress, and guide you through every craving and milestone.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3" id="cta">
+            <a href="#" class="badge rounded-2xl px-5 py-3 font-semibold shadow-glow">Get SMOKD</a>
+            <a href="#features" class="rounded-2xl px-5 py-3 font-semibold glass hover:bg-white/5">See Features</a>
+          </div>
+
+          <div class="mt-8 flex items-center gap-2 text-sm text-white/60">
+            <div class="flex -space-x-3">
+              <div class="h-8 w-8 rounded-full bg-white/20 border border-white/20"></div>
+              <div class="h-8 w-8 rounded-full bg-white/20 border border-white/20"></div>
+              <div class="h-8 w-8 rounded-full bg-white/20 border border-white/20"></div>
+            </div>
+            <span>Be part of the first wave building smoke-free streaks.</span>
+          </div>
+        </div>
+    <!-- <div>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">Quit Smoking. <span style="color: #6366F1">For Real This Time.</span></h1>
+      <p class="mt-6 text-lg text-gray-300">SMOKD is your AI-powered quit coach that helps you beat cravings, track progress, and stay smoke-free — for good.</p>
+      <div class="mt-8 flex gap-4">
+        <a href="#" class="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 rounded-lg font-semibold">Download Now</a>
+        <a href="#features" class="px-6 py-3 border border-gray-500 rounded-lg font-semibold hover:border-indigo-400">Learn More</a>
+      </div>
+    </div> -->
+    <div class="flex justify-center">
+      <!-- iPhone Placeholder -->
+      <img src="/img/smokd.png" alt="SMOKD App" class="max-w-xs md:max-w-sm rounded-lg shadow-lg" />
+    </div>
+  </div>
+</section>
+
+  <!-- FEATURES -->
+  <section id="features" class="relative">
+    <div class="mx-auto max-w-7xl px-5 py-16 md:py-24">
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass rounded-3xl p-6 md:p-8 shadow-glow">
+          <div class="h-10 w-10 rounded-xl flex items-center justify-center badge text-transparent bg-clip-text font-extrabold">
+
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+  <defs>
+    <linearGradient id="smokdGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />   <!-- Start color -->
+      <stop offset="100%" stop-color="#ec4899" /> <!-- End color -->
+    </linearGradient>
+  </defs>
+  <path d="M431.2 476.5C399.9 498.9 361.5 512 320 512C278.5 512 240.1 498.9 208.8 476.5L266.8 418.5C282.6 427.1 300.8 432 320.1 432C339.4 432 357.5 427.1 373.4 418.5L431.4 476.5zM521.9 477.3C555.7 433.9 575.9 379.3 575.9 320C575.9 260.7 555.8 206.1 522 162.7C531 150.2 529.9 132.6 518.6 121.4C507.3 110.2 489.8 109 477.3 118C433.9 84.2 379.3 64 320 64C260.7 64 206.1 84.2 162.7 118C150.2 109 132.6 110.1 121.4 121.4C110.2 132.7 109 150.2 118 162.7C84.2 206.1 64 260.7 64 320C64 379.3 84.2 433.9 118 477.3C109 489.8 110.1 507.4 121.4 518.6C132.7 529.8 150.2 531 162.7 522C206.1 555.8 260.7 576 320 576C379.3 576 433.9 555.8 477.3 522C489.8 531 507.4 529.9 518.6 518.6C529.8 507.3 531 489.8 522 477.3zM476.4 431.2L418.4 373.2C427 357.4 431.9 339.2 431.9 319.9C431.9 300.6 427 282.5 418.4 266.6L476.4 208.6C498.9 240.1 512 278.5 512 320C512 361.5 498.9 399.9 476.5 431.2zM431.2 163.5L373.2 221.5C357.4 212.9 339.2 208 319.9 208C300.6 208 282.5 212.9 266.6 221.5L208.6 163.5C240.1 141.1 278.5 128 320 128C361.5 128 399.9 141.1 431.2 163.5zM221.5 373.3L163.5 431.3C141.1 399.9 128 361.5 128 320C128 278.5 141.1 240.1 163.5 208.8L221.5 266.8C212.9 282.6 208 300.8 208 320.1C208 339.4 212.9 357.5 221.5 373.4zM272 320C272 293.5 293.5 272 320 272C346.5 272 368 293.5 368 320C368 346.5 346.5 368 320 368C293.5 368 272 346.5 272 320z" fill="url(#smokdGradient3)" />
+</svg>
+
+
+          </div>
+          <h3 class="mt-3 text-xl font-bold">Rescue Mode</h3>
+          <p class="mt-2 text-white/70 text-sm">When cravings hit, tap a 3‑minute guided flow that lowers urge intensity and gets you back in control.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass rounded-3xl p-6 md:p-8 shadow-glow">
+          <div class="h-10 w-10 rounded-xl flex items-center justify-center badge text-transparent bg-clip-text font-extrabold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+  <defs>
+    <linearGradient id="smokdGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />   <!-- Start color -->
+      <stop offset="100%" stop-color="#ec4899" /> <!-- End color -->
+    </linearGradient>
+  </defs>
+  <path d="M384 224L480 224L480 160L384 160L384 224zM96 224L96 144C96 117.5 117.5 96 144 96L496 96C522.5 96 544 117.5 544 144L544 240C544 266.5 522.5 288 496 288L144 288C117.5 288 96 266.5 96 240L96 224zM256 480L480 480L480 416L256 416L256 480zM96 480L96 400C96 373.5 117.5 352 144 352L496 352C522.5 352 544 373.5 544 400L544 496C544 522.5 522.5 544 496 544L144 544C117.5 544 96 522.5 96 496L96 480z" fill="url(#smokdGradient)" />
+</svg>
+</div>
+          <h3 class="mt-3 text-xl font-bold"> Progress That Pays</h3>
+          <p class="mt-2 text-white/70 text-sm">Watch money saved, cigarettes skipped, and health climb. Streaks, milestones, & clear metrics.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass rounded-3xl p-6 md:p-8 shadow-glow">
+          <div class="h-10 w-10 rounded-xl flex items-center justify-center badge text-transparent bg-clip-text font-extrabold">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+  <defs>
+    <linearGradient id="smokdGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />   <!-- Start color -->
+      <stop offset="100%" stop-color="#ec4899" /> <!-- End color -->
+    </linearGradient>
+  </defs>
+  <path d="M320 64C355.3 64 384 92.7 384 128C384 163.3 355.3 192 320 192C284.7 192 256 163.3 256 128C256 92.7 284.7 64 320 64zM416 376C416 401 403.3 423 384 435.9L384 528C384 554.5 362.5 576 336 576L304 576C277.5 576 256 554.5 256 528L256 435.9C236.7 423 224 401 224 376L224 336C224 283 267 240 320 240C373 240 416 283 416 336L416 376zM160 96C190.9 96 216 121.1 216 152C216 182.9 190.9 208 160 208C129.1 208 104 182.9 104 152C104 121.1 129.1 96 160 96zM176 336L176 368C176 400.5 188.1 430.1 208 452.7L208 528C208 529.2 208 530.5 208.1 531.7C199.6 539.3 188.4 544 176 544L144 544C117.5 544 96 522.5 96 496L96 439.4C76.9 428.4 64 407.7 64 384L64 352C64 299 107 256 160 256C172.7 256 184.8 258.5 195.9 262.9C183.3 284.3 176 309.3 176 336zM432 528L432 452.7C451.9 430.2 464 400.5 464 368L464 336C464 309.3 456.7 284.4 444.1 262.9C455.2 258.4 467.3 256 480 256C533 256 576 299 576 352L576 384C576 407.7 563.1 428.4 544 439.4L544 496C544 522.5 522.5 544 496 544L464 544C451.7 544 440.4 539.4 431.9 531.7C431.9 530.5 432 529.2 432 528zM480 96C510.9 96 536 121.1 536 152C536 182.9 510.9 208 480 208C449.1 208 424 182.9 424 152C424 121.1 449.1 96 480 96z" fill="url(#smokdGradient4)" />
+</svg>
+
+          </div>
+          <h3 class="mt-3 text-xl font-bold">Coach + Community</h3>
+          <p class="mt-2 text-white/70 text-sm">Chat 24/7 with your AI quit coach and connect with people on the same path. Real talk, real support.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 md:mt-14 grid md:grid-cols-2 gap-6">
+        <div class="glass rounded-3xl p-6 md:p-8">
+          <h4 class="text-lg font-bold mb-2">Why SMOKD works</h4>
+          <ul class="space-y-2 text-white/80 text-sm list-disc pl-5">
+            <li>Targets the exact high‑risk moments with Rescue Mode.</li>
+            <li>Turns progress into motivation you can see.</li>
+            <li>Keeps you accountable with challenges & gentle nudges.</li>
+          </ul>
+        </div>
+        <div class="glass rounded-3xl p-6 md:p-8 flex items-center justify-between">
+          <div>
+            <h4 class="text-lg font-bold mb-1">Start in minutes</h4>
+            <p class="text-white/70 text-sm">Download, set your quit goal, and start your first streak today.</p>
+            <a href="#" class="mt-4 inline-block rounded-xl px-4 py-2 badge font-semibold shadow-glow">Get SMOKD</a>
+          </div>
+          <div class="hidden sm:block h-24 w-24 rounded-2xl" style="background: conic-gradient(from 200deg,#6E5BFF,#36E4DA,#FF8EB3,#6E5BFF)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="relative">
+    <div class="mx-auto max-w-4xl px-5 py-16 md:py-24">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center">FAQ</h2>
+      <div class="mt-8 space-y-3">
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">How does SMOKD help me quit?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">SMOKD combines habit-breaking science, real-time motivation, and progress tracking to keep you on track every day.</p>
+        </details>
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">Can I quit privately?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">Yes. You can keep your journey completely private or connect with others for extra motivation.</p>
+        </details>
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">Does SMOKD work for all types of smokers?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">Absolutely — whether you smoke daily, socially, or have recently quit and want to stay smoke-free.</p>
+        </details>
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">What if I relapse?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">SMOKD helps you reset without judgment, learn from the moment, and get back on track.</p>
+        </details>
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">Is my data safe?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">Yes. We don’t sell your data, and everything stays private to your device unless you choose to share it.</p>
+        </details>
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">Do I need to create an account?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">No. You can start tracking right away and sign in later if you want to sync.</p>
+        </details>
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">Is SMOKD a medical treatment?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">No. SMOKD is a self-help tool designed to support your quit journey. It’s not a substitute for medical advice.</p>
+        </details>
+        <details class="group glass rounded-2xl p-5">
+          <summary class="cursor-pointer list-none font-semibold flex items-center justify-between">iOS & Android?
+            <span class="transition group-open:rotate-45 text-white/50">✛</span>
+          </summary>
+          <p class="mt-3 text-sm text-white/70">iOS is live. Android is coming soon — hop on the waitlist inside the app.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FOOTER -->
+  <section class="relative">
+    <div class="mx-auto max-w-6xl px-5 pb-20">
+      <div class="glass rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between shadow-glow">
+        <div>
+          <h3 class="text-xl md:text-2xl font-extrabold">Ready to feel like you again?</h3>
+          <p class="text-white/70 text-sm mt-1">Start your smoke‑free streak today. Your future self says thanks.</p>
+        </div>
+        <a href="#" class="mt-4 md:mt-0 rounded-2xl px-6 py-3 badge font-semibold">Get SMOKD</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us -->
+<section class="px-6 py-20 bg-[#0A0B27]">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+    <p class="text-gray-300 mb-8">We’d love to hear from you! Reach out anytime at <a style="color: #845EF5; text-decoration: underline;" href="mailto:appsmokd@gmail.com">appsmokd@gmail.com</a>.</p>
+    <div class="flex justify-center gap-6">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/smokd.app" target="_blank" class="text-gray-300 hover:text-indigo-400 text-2xl" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 inline">
+          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a.75.75 0 0 1 .102 1.493L16.25 7.25a.75.75 0 0 1-.102-1.493L16.25 5.75zm-4.75 1.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5z"/>
+        </svg>
+      </a>
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@smokd.app" target="_blank" class="text-gray-300 hover:text-indigo-400 text-2xl" aria-label="TikTok">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 inline">
+          <path d="M16.839 6.764a4.69 4.69 0 0 0 .13 1.088a4.663 4.663 0 0 0 3.033 3.033a4.69 4.69 0 0 0 1.088.13v2.59a7.248 7.248 0 0 1-4.047-1.207v5.959a5.38 5.38 0 1 1-4.713-5.338v2.647a2.79 2.79 0 1 0 2.094 2.694V6h2.425a4.66 4.66 0 0 0-.01.764z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="px-6 py-6 text-center text-gray-400 border-t border-gray-700">
+  © 2025 SMOKD (Nexify Labs LLC). All rights reserved. <a style="color: #845EF5; text-decoration: underline;" target="_blank" href="https://legal.getsmokd.app/privacy.html">Privacy</a> | <a style="color: #845EF5; text-decoration: underline;" target="_blank" href="https://legal.getsmokd.app/terms.html">Terms</a>
+</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear()
+  </script>
+</body>
+</html>
